@@ -10,9 +10,10 @@ echo "Enter WiFi SSID (name) : "
 read ssid
 echo "Enter WiFi password : "
 read psk
-sudo cat $CONFF | sed s/ssid=.*/ssid=$ssid/ | sed s/psk=.*/psk=$psk/ > $CONFF"_2"
-sudo rm $CONFF
-sudo mv $CONFF"_2" $CONFF
+cat $CONFF | sed s/ssid=.*/ssid=$ssid/ | sed s/psk=.*/psk=$psk/ > $CONFF"_2"
+rm $CONFF
+mv $CONFF"_2" $CONFF
+chmod 600 $CONFF
 echo "2 lines edited in /etc/NetworkManager/system-connections/Gigaspot :"
-sudo cat $CONFF | grep 'ssid='
-sudo cat $CONFF | grep 'psk='
+cat $CONFF | grep 'ssid='
+cat $CONFF | grep 'psk='
